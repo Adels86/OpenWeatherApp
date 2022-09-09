@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome with message</title>
+</head>
+<body>
+<p>List of cities:</p>
+
+<tr th:each="city : ${cityList}">
+    <td th:text="${city.getName()}"/>
+</body>
+</html>
