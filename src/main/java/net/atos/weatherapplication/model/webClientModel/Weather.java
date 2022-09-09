@@ -5,7 +5,7 @@ import lombok.Getter;
 
 
 @Getter
-public class WeatherDao {
-    private WeatherDao description;
+public class Weather {
+    private String description;
     private String icon;
 }
