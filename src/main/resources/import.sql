@@ -1,0 +1,1 @@
+insert into city (city_id, lat, lon, name) values(1, 52.14,21.01,'London');

@@ -16,7 +16,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public OpenWeather getWeatherFromApi() {
-        return weatherClient.getWeatherForCoordinates("44.34","10.99");
+        return weatherClient.getWeatherForCoordinates("52.2298","21.0118");
     }
 
 

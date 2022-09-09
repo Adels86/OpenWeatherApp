@@ -19,12 +19,12 @@ public class WeatherClient {
         WeatherFromClient weatherFromeClient = restTemplate.getForObject("https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={apiKey}&units=metric&lang=pl",
                 WeatherFromClient.class, lat, lon, API_KEY);
 
-
         return OpenWeather.builder()
                 .all(weatherFromeClient.getClouds().getAll())
                 .temp(weatherFromeClient.getMain().getTemp())
                 .description(weatherFromeClient.getWeather().get(0).getDescription())
                 .icon(weatherFromeClient.getWeather().get(0).getIcon())
+                .name(weatherFromeClient.getName())
                 .build();
     }
 }
