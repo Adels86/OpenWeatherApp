@@ -6,8 +6,79 @@
 </head>
 <body>
 <p>List of cities:</p>
+<!--<form method="post" class="formlogin"  th:action="@{/cities}" th:object="${city}">-->
+<!--    <div>-->
+<!--        <label for="Berlin"> Berlin</label><br>-->
+<!--        <input type="checkbox" name="Berlin" id="Berlin" th:checked="${emptyOrder.getBerlin()}" />-->
+<!--    </div>-->
 
-<tr th:each="city : ${cityList}">
-    <td th:text="${city.getName()}"/>
+
+<form method="post" class="formlogin"  th:action="@{/cities}" th:object="${emptyOrder}">
+
+    <div>
+    <label for="Berlin"> Berlin</label><br>
+    <input type="checkbox" name="Berlin" id="Berlin" th:checked="${emptyOrder.getBerlin()}" />
+    </div>
+
+    <div>
+        <label for="London"> London</label><br>
+        <input type="checkbox" name="London" id="London" th:checked="${emptyOrder.getLondon()}" />
+    </div>
+
+    <div>
+        <label for="Madrit"> Madrit</label><br>
+        <input type="checkbox" name="Madrit" id="Madrit" th:checked="${emptyOrder.getMadrid()}" />
+    </div>
+
+    <div>
+        <label for="Paris"> Paris</label><br>
+        <input type="checkbox" name="Paris" id="Paris" th:checked="${emptyOrder.getParis()}" />
+    </div>
+
+    <div>
+        <label for="Rome"> Rome</label><br>
+        <input type="checkbox" name="Rome" id="Rome" th:checked="${emptyOrder.getRome()}" />
+    </div>
+
+    <div>
+        <label for="Sydney"> Sydney</label><br>
+        <input type="checkbox" name="Sydney" id="Sydney" th:checked="${emptyOrder.getSydney()}" />
+    </div>
+
+    <div>
+        <label for="Tokio">Tokio</label><br>
+        <input type="checkbox" name="Tokio" id="Tokio" th:checked="${emptyOrder.getTokio()}" />
+    </div>
+
+    <div>
+        <label for="Warsaw">Warsaw</label><br>
+        <input type="checkbox" name="Warsaw" id="Warsaw" th:checked="${emptyOrder.getWarsaw()}" />
+    </div>
+
+    <div>
+        <label for="Zocca">Zocca</label><br>
+        <input type="checkbox" name="Zocca" id="Zocca" th:checked="${emptyOrder.getZocca()}" />
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+<!--    <button type="button" class="btn btn-warning "><a class="nav-link ms-auto" th:href="@{/order}" >Get Weather</a></button></div>-->
+
+
+
+</form>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label><br>
+
+
 </body>
 </html>

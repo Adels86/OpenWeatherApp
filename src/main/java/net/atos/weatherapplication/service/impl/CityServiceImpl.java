@@ -20,8 +20,10 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private WeatherClient weatherClient;
 
-
-
+//    @Override
+//    public void update(City city) {
+//        cityRepository.setCityByID(city.isSelected(),city.getId());
+//    }
 
     @Override
     public List<City> getCities() {
@@ -29,7 +31,15 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public OpenWeather getWeatherFromApi() {
-        return weatherClient.getWeatherForCoordinates("52.2298","21.0118");
+    public OpenWeather getWeatherFromApi(double lon, double lat) {
+        return weatherClient.getWeatherForCoordinates(lon, lat);
     }
+
+    public City getById(int id){
+      return  cityRepository.findById(id).get();
+    }
+
+
+
+
 }

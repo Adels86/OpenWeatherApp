@@ -19,4 +19,5 @@ public class City {
     private String name;
     private double lat;
     private double lon;
+    private boolean isSelected;
 }

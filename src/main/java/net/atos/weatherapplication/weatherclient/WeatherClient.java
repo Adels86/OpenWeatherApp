@@ -15,7 +15,7 @@ public class WeatherClient {
     private RestTemplate restTemplate = new RestTemplate();
 
 
-    public OpenWeather getWeatherForCoordinates(String lat, String lon) {
+    public OpenWeather getWeatherForCoordinates(double lat, double lon) {
         WeatherFromClient weatherFromeClient = restTemplate.getForObject("https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={apiKey}&units=metric&lang=pl",
                 WeatherFromClient.class, lat, lon, API_KEY);
 

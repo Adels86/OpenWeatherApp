@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<tr th:each="weather: ${orderedWeathers}">
+    <td th:text="${weather.getName}" />
+    <td th:text="${weather.getDescription}" />
+    <td th:text="${weather.getIcon}" />
+    <td th:text="${weather.getAll}" />
+
+</tr>
+
+
+
+
+<!--<tr th:action="${orderBerlin}">-->
+<!--    <td th:text="${orderBerlin.getName()}" />-->
+<!--    <td th:text="${orderBerlin.getDescription()}" />-->
+<!--    <td th:text="${orderBerlin.getTemp()}" />-->
+<!--    <td th:text="${orderBerlin.getIcon()}" />-->
+<!--    <td th:text="${orderBerlin.getAll()}" />-->
+
+<!--</tr>-->
+
+<!--<tr th:action="${orderLondon}">-->
+<!--    <td th:text="${orderLondon.getName()}" />-->
+<!--    <td th:text="${orderLondon.getDescription()}" />-->
+<!--    <td th:text="${orderLondon.getTemp()}" />-->
+<!--    <td th:text="${orderLondon.getIcon()}" />-->
+<!--    <td th:text="${orderLondon.getAll()}" />-->
+
+<!--</tr>-->
+
+
+</body>
+</html>

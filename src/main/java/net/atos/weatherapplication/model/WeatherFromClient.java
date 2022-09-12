@@ -13,4 +13,5 @@ public class WeatherFromClient {
     private Main main;
     private List<Weather> weather;
     private String name;
+
 }

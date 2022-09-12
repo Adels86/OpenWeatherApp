@@ -3,6 +3,7 @@ package net.atos.weatherapplication.model;
 import lombok.*;
 import net.atos.weatherapplication.model.webClientModel.Weather;
 
+import javax.persistence.Column;
 import java.util.List;
 
 @Getter
@@ -13,4 +14,6 @@ public class OpenWeather {
     private String description;
     private String icon;
     private String name;
+    @Column(name = "is_selected")
+    boolean isSelected;
 }
