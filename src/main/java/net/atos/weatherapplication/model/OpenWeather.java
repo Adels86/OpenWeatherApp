@@ -14,6 +14,5 @@ public class OpenWeather {
     private String description;
     private String icon;
     private String name;
-    @Column(name = "is_selected")
-    boolean isSelected;
+
 }

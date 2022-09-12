@@ -57,15 +57,33 @@ public class WeatherController {
             openWeathers.add(cityService.getWeatherFromApi(cityService.getById(i).getLat(), cityService.getById(i).getLon()));
         }
 
-        if (!(userOrder.getBerlin() == null)) {orderedWeathers.add(openWeathers.get(7));}
-        if (!(userOrder.getLondon() == null)) {orderedWeathers.add(openWeathers.get(2));}
-        if(!(userOrder.getZocca() == null)) {orderedWeathers.add(openWeathers.get(0));}
-        if(!(userOrder.getWarsaw() == null)) {orderedWeathers.add(openWeathers.get(1));}
-        if(!(userOrder.getParis() == null)) {orderedWeathers.add(openWeathers.get(3));}
-        if(!(userOrder.getRome() == null)) {orderedWeathers.add(openWeathers.get(4));}
-        if(!(userOrder.getMadrid() == null)) {orderedWeathers.add(openWeathers.get(6));}
-        if(!(userOrder.getTokio() == null)) {orderedWeathers.add(openWeathers.get(8));}
-        if(!(userOrder.getSydney() == null)) {orderedWeathers.add(openWeathers.get(9));}
+        if (!(userOrder.getBerlin() == null)) {
+            orderedWeathers.add(openWeathers.get(7));
+        }
+        if (!(userOrder.getLondon() == null)) {
+            orderedWeathers.add(openWeathers.get(2));
+        }
+        if (!(userOrder.getZocca() == null)) {
+            orderedWeathers.add(openWeathers.get(0));
+        }
+        if (!(userOrder.getWarsaw() == null)) {
+            orderedWeathers.add(openWeathers.get(1));
+        }
+        if (!(userOrder.getParis() == null)) {
+            orderedWeathers.add(openWeathers.get(3));
+        }
+        if (!(userOrder.getRome() == null)) {
+            orderedWeathers.add(openWeathers.get(4));
+        }
+        if (!(userOrder.getMadrid() == null)) {
+            orderedWeathers.add(openWeathers.get(6));
+        }
+        if (!(userOrder.getTokio() == null)) {
+            orderedWeathers.add(openWeathers.get(8));
+        }
+        if (!(userOrder.getSydney() == null)) {
+            orderedWeathers.add(openWeathers.get(9));
+        }
 
         modelMap.addAttribute("orderedWeathers", orderedWeathers);
         return "order";
