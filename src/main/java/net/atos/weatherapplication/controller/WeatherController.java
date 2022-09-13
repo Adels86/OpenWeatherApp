@@ -1,7 +1,7 @@
 package net.atos.weatherapplication.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import net.atos.weatherapplication.model.Entity.City;
+import net.atos.weatherapplication.exception.UserOrderNotFoundException;
 import net.atos.weatherapplication.model.OpenWeather;
 import net.atos.weatherapplication.model.UserOrder;
 import net.atos.weatherapplication.service.CityService;
@@ -13,8 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,8 @@ import java.util.List;
 @Controller
 @Slf4j
 public class WeatherController {
+
+    private UserOrder userOrder;
     @Autowired
     private CityService cityService;
 
@@ -34,23 +34,24 @@ public class WeatherController {
     @GetMapping(path = "/cities")
     public String citieList(ModelMap modelMap) {
         modelMap.addAttribute("emptyOrder", new UserOrder());
-//        modelMap.addAttribute("newCity", new City());
         return "index";
     }
 
     @PostMapping("/cities")
-    public String handleNewOrder(@ModelAttribute UserOrder userOrder) {
-        log.info("Received user: " + userOrder);
-        orderService.save(userOrder);
-//        orderService.save(userOrder);
-        return "redirect:/order";
+    public String handleNewOrder(@ModelAttribute UserOrder userOrderFromUser) {
+        log.info("Received user: " + userOrderFromUser);
+
+         this.userOrder = userOrderFromUser;
+            return "redirect:/order";
+
 
     }
 
     @GetMapping(path = "/order")
     public String getOrders(ModelMap modelMap) {
-        UserOrder userOrder = orderService.getOrder();
-        List<City> citiesFromeDB = cityService.getCities();
+        if(userOrder == null){
+            throw new UserOrderNotFoundException(userOrder);}
+
         List<OpenWeather> openWeathers = new ArrayList<>();
         List<OpenWeather> orderedWeathers = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
@@ -83,6 +84,9 @@ public class WeatherController {
         }
         if (!(userOrder.getSydney() == null)) {
             orderedWeathers.add(openWeathers.get(9));
+        }
+        if(orderedWeathers.isEmpty()){
+            throw new UserOrderNotFoundException(userOrder);
         }
 
         modelMap.addAttribute("orderedWeathers", orderedWeathers);
