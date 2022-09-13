@@ -7,10 +7,11 @@
 <body>
 <tr th:each="weather: ${orderedWeathers}">
     <td th:text="${weather.getName}" />
+    <td th:text="${weather.getTemp}" />
+    <td th:text="${weather.tempCelsius}" />
     <td th:text="${weather.getDescription}" />
-    <td th:text="${weather.getIcon}" />
     <td th:text="${weather.getAll}" />
-
+    <img th:src="${weather.getIcon}" />
 </tr>
 
 

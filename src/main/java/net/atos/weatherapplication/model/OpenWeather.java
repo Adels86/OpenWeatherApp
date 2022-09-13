@@ -11,6 +11,7 @@ import java.util.List;
 public class OpenWeather {
     private int all;
     private float temp;
+    private float tempCelsius;
     private String description;
     private String icon;
     private String name;

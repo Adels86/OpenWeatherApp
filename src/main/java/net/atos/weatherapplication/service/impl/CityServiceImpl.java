@@ -1,5 +1,4 @@
 package net.atos.weatherapplication.service.impl;
-
 import lombok.extern.slf4j.Slf4j;
 import net.atos.weatherapplication.model.Entity.City;
 import net.atos.weatherapplication.model.OpenWeather;
@@ -9,8 +8,6 @@ import net.atos.weatherapplication.weatherclient.WeatherClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @Slf4j
 public class CityServiceImpl implements CityService {
@@ -19,16 +16,6 @@ public class CityServiceImpl implements CityService {
 
     @Autowired
     private WeatherClient weatherClient;
-
-//    @Override
-//    public void update(City city) {
-//        cityRepository.setCityByID(city.isSelected(),city.getId());
-//    }
-
-    @Override
-    public List<City> getCities() {
-        return cityRepository.findAll();
-    }
 
     @Override
     public OpenWeather getWeatherFromApi(double lon, double lat) {

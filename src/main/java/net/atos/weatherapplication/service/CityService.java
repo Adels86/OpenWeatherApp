@@ -10,9 +10,6 @@ import java.util.List;
 public interface CityService {
     OpenWeather getWeatherFromApi(double lon, double lat);
 
-//    public void update(City city);
-
-    List<City> getCities();
     public City getById(int id);
 
 }
