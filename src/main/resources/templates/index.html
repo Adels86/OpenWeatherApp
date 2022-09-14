@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +13,8 @@
 
 <div class="container">
     <div class="row">
-                <div class="nav col-12 col-lg-auto me-lg-auto mb-2 d-flex align-items-center justify-content-center mb-md-0" style="margin-top: 25%">
-                    <p class="header col-4 ">Choose the weather for your cities</p>
+                <div class="nav col-12 col-lg-auto me-lg-auto mb-2 align-items-center justify-content-center mb-md-0" style="margin-top: 25%">
+                    <header class="header col-4 ">Choose the weather for your cities</header>
         <form method="post" class="formlogin" th:action="@{/cities}" th:object="${emptyOrder}">
             <input type="checkbox" class="btn-check" name="Berlin" id="Berlin" autocomplete="off"
                    th:checked="${emptyOrder.getBerlin()}"/>
