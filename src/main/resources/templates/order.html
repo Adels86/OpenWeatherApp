@@ -9,17 +9,25 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"/>
 </head>
 <body>
+
 <div class="container">
     <div class="row">
 
-        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 d-flex align-items-center justify-content-center mb-md-0" style="margin-top: 25%">
-<div class="loop justify-content-center"  style='height: 101px; width: 320px; object-fit: contain' th:each="weather: ${orderedWeathers}">
-    <div class="name"><p class="names" th:text="${weather.getName}" /></div>
-    <img class="icon" th:src="${weather.getIcon}" />
-    <p class="celsius" th:text="${weather.tempCelsius + '&#176;C | ' + weather.getTemp() + '&#176;F'}" />
-    <div class="description" th:text="${weather.getDescription + ' ' + weather.getAll()}"></div>
+        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 d-flex align-items-center justify-content-center mb-md-0"
+             style="margin-top: 25%">
+
+            <div class="loop justify-content-center" style='height: 101px; width: 320px; object-fit: contain'
+                 th:each="weather: ${orderedWeathers}">
+                <div class="name"><p class="names" th:text="${weather.getName}"/></div>
+                <img class="icon" th:src="${weather.getIcon}"/>
+                <p class="celsius" th:text="${weather.tempCelsius + '&#176;C | ' + weather.getTemp() + '&#176;F'}"/>
+                <div class="description" th:text="${weather.getDescription + ' ' + weather.getAll()}"></div>
+            </div>
+            <a th:href="@{/cities}"><button type="button"  class="btn">Start</button></a>
+
+        </div>
+    </div>
 </div>
-        </div></div></div>
 
 
 </body>
