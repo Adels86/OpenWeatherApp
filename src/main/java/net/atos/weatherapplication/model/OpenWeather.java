@@ -15,5 +15,4 @@ public class OpenWeather {
     private String description;
     private String icon;
     private String name;
-
 }
