@@ -15,10 +15,12 @@
     <div class="row">
                 <div class="nav col-12 col-lg-auto me-lg-auto mb-2 align-items-center justify-content-center mb-md-0" style="margin-top: 25%">
                     <header class="header col-4 ">Choose the weather for your cities</header>
+
         <form method="post" class="formlogin" th:action="@{/cities}" th:object="${emptyOrder}">
+
             <input type="checkbox" class="btn-check" name="Berlin" id="Berlin" autocomplete="off"
                    th:checked="${emptyOrder.getBerlin()}"/>
-            <label class="btn btn-group" for="Berlin">Berlin1</label>
+            <label class="btn btn-group" for="Berlin">Berlin</label>
 
             <input type="checkbox" class="btn-check" name="London" id="London" autocomplete="off"
                    th:checked="${emptyOrder.getLondon()}"/>
