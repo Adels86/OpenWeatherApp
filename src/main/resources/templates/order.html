@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <title>Your Selection</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"/>
 </head>
 <body>
-<tr th:each="weather: ${orderedWeathers}">
-    <td th:text="${weather.getName}" />
-    <td th:text="${weather.getTemp}" />
-    <td th:text="${weather.tempCelsius}" />
-    <td th:text="${weather.getDescription}" />
-    <td th:text="${weather.getAll}" />
-    <img th:src="${weather.getIcon}" />
-</tr>
+<div class="container">
+    <div class="row">
 
-
-
-
-<!--<tr th:action="${orderBerlin}">-->
-<!--    <td th:text="${orderBerlin.getName()}" />-->
-<!--    <td th:text="${orderBerlin.getDescription()}" />-->
-<!--    <td th:text="${orderBerlin.getTemp()}" />-->
-<!--    <td th:text="${orderBerlin.getIcon()}" />-->
-<!--    <td th:text="${orderBerlin.getAll()}" />-->
-
-<!--</tr>-->
-
-<!--<tr th:action="${orderLondon}">-->
-<!--    <td th:text="${orderLondon.getName()}" />-->
-<!--    <td th:text="${orderLondon.getDescription()}" />-->
-<!--    <td th:text="${orderLondon.getTemp()}" />-->
-<!--    <td th:text="${orderLondon.getIcon()}" />-->
-<!--    <td th:text="${orderLondon.getAll()}" />-->
-
-<!--</tr>-->
+        <div class="nav col-12 col-lg-auto me-lg-auto mb-2 d-flex align-items-center justify-content-center mb-md-0" style="margin-top: 25%">
+<div class="loop justify-content-center"  style='height: 101px; width: 320px; object-fit: contain' th:each="weather: ${orderedWeathers}">
+    <div class="name"><p class="names" th:text="${weather.getName}" /></div>
+    <img class="icon" th:src="${weather.getIcon}" />
+    <p class="celsius" th:text="${weather.tempCelsius + '&#176;C | ' + weather.getTemp() + '&#176;F'}" />
+    <div class="description" th:text="${weather.getDescription + ' ' + weather.getAll()}"></div>
+</div>
+        </div></div></div>
 
 
 </body>

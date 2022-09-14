@@ -2,10 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Welcome with message</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
+<!--    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"/>-->
+
 </head>
 <body>
-<p>List of cities:</p>
+<p>Weather</p>
 
 
 
@@ -56,35 +60,13 @@
         <input type="checkbox" class="check" name="Zocca" id="Zocca" th:checked="${emptyOrder.getZocca()}" />
     </div>
 
-
-
-
-
-
-
-
-
-
-
     <button type="submit" class="btn btn-primary">Submit</button>
-<!--    <button type="button" class="btn btn-warning "><a class="nav-link ms-auto" th:href="@{/order}" >Get Weather</a></button></div>-->
-
-
 
 </form>
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-<label for="vehicle1"> I have a bike</label><br>
 
-<script>
-    var checks = document.querySelectorAll(".check");
-    var max = 5;
-    for (var i = 0; i < checks.length; i++)
-        checks[i].onclick = selectiveCheck;
-    function selectiveCheck (event) {
-        var checkedChecks = document.querySelectorAll(".check:checked");
-        if (checkedChecks.length >= max + 1)
-            return false;
-    }
-</script>
+
 </body>
+<script type="text/javascript" src="/js/order.js"></script>
+
+
 </html>

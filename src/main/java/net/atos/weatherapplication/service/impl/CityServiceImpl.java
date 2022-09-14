@@ -21,7 +21,7 @@ public class CityServiceImpl implements CityService {
     public OpenWeather getWeatherFromApi(double lon, double lat) {
         return weatherClient.getWeatherForCoordinates(lon, lat);
     }
-
+    @Override
     public City getById(int id){
       return  cityRepository.findById(id).get();
     }
