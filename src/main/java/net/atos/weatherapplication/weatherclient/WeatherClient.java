@@ -13,6 +13,9 @@ public class WeatherClient {
     @Value("${api_key}")
     private String apiKey;
 
+    @Value("${icon_key}")
+    private String iconUrl;
+
     private final RestTemplate restTemplate = new RestTemplate();
 
     public OpenWeather getWeatherForCoordinates(double lat, double lon) {
@@ -34,7 +37,7 @@ public class WeatherClient {
     }
 
     public String getIconUri(String code){
-       return  "http://openweathermap.org/img/wn/" + code + "@2x.png";
+       return  iconUrl + code + "@2x.png";
     }
 
     public float kelvinToCelsiusConverter(float kel){

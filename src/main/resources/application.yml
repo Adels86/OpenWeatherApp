@@ -21,3 +21,6 @@ api_key: 0c82e654e101ff1ac3e346c6a27d1ea1
 
 #open weather url
 api_url: https://api.openweathermap.org/data/2.5/
+
+#open weather icon url
+icon_key: http://openweathermap.org/img/wn/
