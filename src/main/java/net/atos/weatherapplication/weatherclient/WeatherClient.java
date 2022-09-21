@@ -1,5 +1,4 @@
 package net.atos.weatherapplication.weatherclient;
-
 import net.atos.weatherapplication.model.OpenWeather;
 import net.atos.weatherapplication.model.WeatherFromClient;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="nWFM-ESB"
+                  targetNamespace="http://nwfm.orange.pl/esb"
+                  xmlns:tns="http://nwfm.orange.pl/esb"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://nwfm.orange.pl/esb">
+
+            <xsd:complexType name="resourceActivationStateChangeEvent">
+                <xsd:sequence>
+                    <xsd:element name="resourceActivationStateChangeEvent" nillable="true"
+                                 type="tns:docResourceActivationStateChangeEvent"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="resourceActivationStateChangeEventResponse">
+                <xsd:sequence>
+                    <xsd:element name="docResourceActivationStateChangeEventResponse" nillable="true"
+                                 type="tns:docResultResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docResourceActivationStateChangeEvent">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="eventId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="eventTime" nillable="true" type="xsd:string"/>
+                    <xsd:element name="state" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="eventType" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="event" nillable="true" type="tns:docEvent"/>
+                    <xsd:element minOccurs="0" name="result" nillable="true" type="tns:docResult"/>
+                    <xsd:element minOccurs="0" name="flowData" nillable="true" type="tns:docFlowData"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docEvent">
+                <xsd:sequence>
+                    <xsd:element name="id" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docResult">
+                <xsd:sequence>
+                    <xsd:element name="errorCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="errorDesc" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="nativeErrorCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="nativeErrorDesc" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docResultResponse">
+                <xsd:sequence>
+                    <xsd:element name="errorCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="errorDesc" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docFlowData">
+                <xsd:sequence>
+                    <xsd:element name="correlationId" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="retraceCount" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="sources" nillable="true" type="tns:docSource"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameters" nillable="true" type="tns:docParameter"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="docSource">
+                <xsd:sequence>
+                    <xsd:element name="sourceId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="sourceSeqNo" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="sourceParameters" nillable="true" type="tns:docParameter"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="docParameter">
+                <xsd:sequence>
+                    <xsd:element name="parameterName" nillable="true" type="xsd:string"/>
+                    <xsd:element name="parameterValue" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="parameterDataType" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="resourceActivationStateChangeEvent" type="tns:resourceActivationStateChangeEvent"/>
+            <xsd:element name="resourceActivationStateChangeEventResponse" type="tns:resourceActivationStateChangeEventResponse"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="resourceActivationStateChangeEvent">
+        <wsdl:part name="parameters" element="tns:resourceActivationStateChangeEvent"/>
+    </wsdl:message>
+    <wsdl:message name="resourceActivationStateChangeEventResponse">
+        <wsdl:part name="parameters" element="tns:resourceActivationStateChangeEventResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="ESBServicePortType">
+        <wsdl:operation name="resourceActivationStateChangeEvent">
+            <wsdl:input message="tns:resourceActivationStateChangeEvent">
+            </wsdl:input>
+            <wsdl:output message="tns:resourceActivationStateChangeEventResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding
+            name="ESBServiceBinding"
+            type="tns:ESBServicePortType">
+
+        <soap12:binding style="document"
+                        transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="resourceActivationStateChangeEvent">
+            <soap12:operation
+                    soapAction="http://nwfm.orange.pl/nWfm/api/integration-esb/soap/resourceActivationStateChangeEvent"/>
+            <wsdl:input>
+                <soap12:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ESBService">
+        <wsdl:port name="ESBServiceSOAP"
+                   binding="tns:ESBServiceBinding">
+            <soap12:address
+                    location="http://integration-esb:9090/nWfm/api/integration-esb/soap" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

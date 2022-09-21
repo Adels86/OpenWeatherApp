@@ -1,6 +1,6 @@
 package net.atos.weatherapplication.service.impl;
 import lombok.extern.slf4j.Slf4j;
-import net.atos.weatherapplication.exception.CityNotFindException;
+import net.atos.weatherapplication.exception.CityNotFoundException;
 import net.atos.weatherapplication.model.Entity.City;
 import net.atos.weatherapplication.model.OpenWeather;
 import net.atos.weatherapplication.repository.CityRepository;
@@ -8,8 +8,6 @@ import net.atos.weatherapplication.service.CityService;
 import net.atos.weatherapplication.weatherclient.WeatherClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -26,7 +24,7 @@ public class CityServiceImpl implements CityService {
     }
     @Override
     public City getById(int id){
-        return cityRepository.findById(id).orElseThrow(() -> new CityNotFindException(id));
+        return cityRepository.findById(id).orElseThrow(() -> new CityNotFoundException(id));
     }
 
 
